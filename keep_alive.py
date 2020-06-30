@@ -3,6 +3,8 @@ from threading import Thread
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask('')
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///logs.sqlite3"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config.from_pyfile("config.py")
 
 db = SQLAlchemy(app)
@@ -28,7 +30,7 @@ def main():
   data = logs.query.all()
   return render_template("index.html", logs=data)
 def run():
-  app.run(host="0.0.0.0", port=8080)
+  app.run(host="0.0.0.0", port=8080) 
 def keep_alive():
     server = Thread(target=run)
     server.start()
