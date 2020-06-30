@@ -5,7 +5,9 @@
 
   <body> 
     {% for log in logs %}
-      <h1> {{log.name}} </h1>
+      <img src="{{log.pplink}}">
+      <h3> {{log.name}} </h3>
+      <h4> {{log.time}} </h4>
       <p> {{log.text}} </p>
     {% endfor %}
   </body>

@@ -21,12 +21,15 @@ async def on_message(message):
       user = message.author.name
       text = message.content[9:]
       time = message.created_at.strftime("%m/%d/%Y, %H:%M:%S")
-      await message.channel.send(user + text + time)
+      avatar = message.author.avatar
+      userid = str(message.author.id)
+      await message.channel.send(avatar + "gang" + userid)
       logInfo = {
             'id': id,
             'name': user,
             'text': text,
-            'time': time
+            'time': time,
+            'pplink': 'https://cdn.discordapp.com/avatars/'+userid+'/'+avatar+'.jpg'
         }
       response = requests.post(f"https://CodeLogDiscordBot--sunghyounk.repl.co",data=logInfo)
       #raptor_link = response.json()["data"]["url"]
