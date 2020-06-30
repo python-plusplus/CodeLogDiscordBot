@@ -2,3 +2,10 @@
 <head>
   <header>Code Logs</header>
 </head>
+
+  <body> 
+    {% for log in logs %}
+      <h1> {{log.name}} </h1>
+      <p> {{log.text}} </p>
+    {% endfor %}
+  </body>
